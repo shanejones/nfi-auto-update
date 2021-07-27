@@ -1,4 +1,5 @@
 import telegram
+import sys
 
 telegram_http_api = "TELEGRAM_HTTP_API"
 telegram_user_id = "TELEGRAM_USER_ID"
