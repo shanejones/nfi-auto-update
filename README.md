@@ -7,7 +7,7 @@ To install, `git clone` this repo into the root of your server. This should be i
 You'll then need to install the telegram dependencies to the server using the following
 
 ```
-pip install python-telegram-bot
+pip3 install python-telegram-bot
 ```
 
 Next you'll need to tweak some settings in the files.
