@@ -8,7 +8,7 @@ To install run
 git clone https://github.com/shanejones/nfi-auto-update
 ```
 
-This command should be in the same folder that freqtrade and the NostalgiaForInfinity folder is.
+This command should be ran in the folder that the freqtrade and the NostalgiaForInfinity folders are located.
 
 You'll then need to install the telegram dependencies to the server using the following
 
