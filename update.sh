@@ -7,7 +7,7 @@ UPDATED='Already up to date.'
 if [[ $GITRESPONSE != $UPDATED ]]; then
         cp NostalgiaForInfinityNext.py /root/freqtrade/user_data/strategies/NostalgiaForInfinityNext.py
         
-		GITMESSAGE=`git log -1 --pretty=%B`
+		GITMESSAGE=`git log HEAD@{1}.. --pretty=%B`
 
         if [[ $GITMESSAGE != "" ]]; then
                 python3 /root/nfi-auto-update/notify.py "$GITMESSAGE"
