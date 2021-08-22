@@ -33,10 +33,11 @@ Once those settings are done, you'll need to create a cron job to run this frequ
 
 Log into your server and type `crontab -e`. If this is the first tiume you have run this it will ask you which editor you want to use to edit. Choose nano if that is more familiar to you.
 
-Next you should be editing the cron file, add in the following line at the bottom of the file.
+Next you should be editing the cron file, add in the following line at the bottom of the file. This will run every 2/7/12/17...52/57 minutes past the hour and it does will not clash with the with the 5 min candles calculations. h/t @abanchev for this tip!
+
 
 ```
-*/30 * * * * /bin/bash -c "/root/nfi-auto-update/update.sh"
+2-59/5 * * * * /bin/bash -c "/root/nfi-auto-update/update.sh"
 ```
 
 This final part of that command should resolve to the `update.sh` file. 
