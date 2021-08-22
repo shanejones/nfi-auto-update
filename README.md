@@ -36,7 +36,7 @@ Log into your server and type `crontab -e`. If this is the first tiume you have 
 Next you should be editing the cron file, add in the following line at the bottom of the file.
 
 ```
-*/30 * * * * /bin/bash -c "/root/nfi-updater/update.sh"
+*/30 * * * * /bin/bash -c "/root/nfi-auto-update/update.sh"
 ```
 
 This final part of that command should resolve to the `update.sh` file. 
