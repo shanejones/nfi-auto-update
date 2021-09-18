@@ -29,9 +29,7 @@ ln -s /root/NostalgiaForInfinity/NostalgiaForInfinityNext.py /root/freqtrade/use
 We also need to make all the shell scripts executable:
 
 ```
-chmod +x update.sh
-chmod +x restart.sh
-chmod +x start.sh
+chmod +x update.sh restart.sh start.sh
 ```
 
 Once those settings are done, you'll need to create a cron job to run this frequently.
