@@ -1,18 +1,15 @@
 #!/bin/bash
-cd /root/NostalgiaForInfinity
+cd /root/freqtrade
+FREQVERSION=`git describe --tags`
 
+cd /root/NostalgiaForInfinity
 GITRESPONSE=`git pull`
 UPDATED='Already up to date.'
+NFIVERSION=`git describe --tags`
+NFICOMMENT=$(git show -s --format='%s')
 
 if [[ $GITRESPONSE != $UPDATED ]]; then
-        cp NostalgiaForInfinityNext.py /root/freqtrade/user_data/strategies/NostalgiaForInfinityNext.py
-        
-		GITMESSAGE=`git log HEAD@{1}.. --pretty=%B`
-
-        if [[ $GITMESSAGE != "" ]]; then
-                python3 /root/nfi-auto-update/notify.py "$GITMESSAGE"
-        else    
-                python3 /root/nfi-auto-update/notify.py
-        fi
-
+  python3 /root/nfi-auto-update/notify.py "$FREQVERSION" "$NFIVERSION" "$NFICOMMENT"
+  sleep 5
+  /root/nfi-auto-update/restart.sh
 fi
