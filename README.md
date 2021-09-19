@@ -1,7 +1,33 @@
 # NFI Auto Updater
-
+###Background###
 This repo will help you set up auto updates on the NostalgiaForInfinityNext repo for use with freqtrade.
 
+This installation has been written as part of the following guide:
+```https://medium.com/@shanejones/how-i-set-up-freqtrade-a287db8966f```
+
+## Updating from manual /reload_config version##
+
+Navigate to your nfi-auto-update folder: `cd /root/nfi-auto-update`
+
+Make a copy of your `TELEGRAM_USER_ID` and `TELEGRAM_HTTP_API` from `notify.py`, they will be overwritten with empty values.
+
+Download the latest update of nfi-auto-update: `git pull`
+
+Make all of the shell scripts executable again: `chmod +x update.sh restart.sh start.sh`
+
+Put your `TELEGRAM_USER_ID` and `TELEGRAM_HTTP_API` back into `notify.py`.
+
+Edit your crontab: `crontab -e`
+
+Add a new line to deal with system restarts: `@reboot sleep 10; /bin/bash -c "/root/nfi-auto-update/start.sh"`
+
+Delete the NFI python file from your strategy folder: `rm /root/freqtrade/user_data/strategies/NostalgiaForInfinityNext.py`
+
+Add the soft link in it's place: 
+
+```ln -s /root/NostalgiaForInfinity/NostalgiaForInfinityNext.py /root/freqtrade/user_data/strategies/NostalgiaForInfinityNext.py```
+
+## Fresh install ##
 To install run 
 
 ```
@@ -26,7 +52,7 @@ Next we need to add a soft link (think of it as a redirect) from the NFI python 
 ln -s /root/NostalgiaForInfinity/NostalgiaForInfinityNext.py /root/freqtrade/user_data/strategies/NostalgiaForInfinityNext.py
 ```
 
-We also need to make all the shell scripts executable:
+We also need to make all of the shell scripts executable:
 
 ```
 chmod +x update.sh restart.sh start.sh
