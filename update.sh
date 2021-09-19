@@ -10,6 +10,7 @@ NFICOMMENT=$(git show -s --format='%s')
 
 if [[ $GITRESPONSE != $UPDATED ]]; then
   python3 /root/nfi-auto-update/notify.py "$FREQVERSION" "$NFIVERSION" "$NFICOMMENT"
+  cp /root/NostalgiaForInfinity/NostalgiaForInfinityNext.py /root/freqtrade/user_data/strategies/NostalgiaForInfinityNext.py
   sleep 5
   /root/nfi-auto-update/restart.sh
 fi
